@@ -31,5 +31,16 @@
     "Justification": "CI Automated Test Elevation",
     "DurationHours": 1,
     "Status": "Approved"
+  },
+  {
+    "Timestamp": "2026-08-17T16:39:50.8129751Z",
+    "CorrelationId": "c81776da-7c41-49b5-84b1-b9bd298b82df",
+    "UserPrincipalName": "admin@workspace.local",
+    "RoleName": "Security Reader",
+    "RoleId": "9b895536-f61b-4029-a152-a5dd0354162e",
+    "TicketNumber": "INC-AUTO-TEST",
+    "Justification": "CI Automated Test Elevation",
+    "DurationHours": 1,
+    "Status": "Approved"
   }
 ]
