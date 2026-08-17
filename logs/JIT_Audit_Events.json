@@ -1,0 +1,35 @@
+[
+  {
+    "Timestamp": "2026-08-17T13:29:20.7470895Z",
+    "CorrelationId": "987753dd-adf5-44f1-b4e6-c8744d633043",
+    "UserPrincipalName": "admin@workspace.local",
+    "RoleName": "Global Reader",
+    "RoleId": "9b895536-f61b-4029-a152-a5dd0354162e",
+    "TicketNumber": "INC12345678",
+    "Justification": "Resolving incident INC12345678",
+    "DurationHours": 2,
+    "Status": "Approved"
+  },
+  {
+    "Timestamp": "2026-08-17T15:12:20.1871416Z",
+    "CorrelationId": "570d3534-c6b4-4830-a89b-9770418e4cd8",
+    "UserPrincipalName": "admin@workspace.local",
+    "RoleName": "Security Reader",
+    "RoleId": "9b895536-f61b-4029-a152-a5dd0354162e",
+    "TicketNumber": "INC-AUTO-TEST",
+    "Justification": "CI Automated Test Elevation",
+    "DurationHours": 1,
+    "Status": "Approved"
+  },
+  {
+    "Timestamp": "2026-08-17T15:18:18.0944627Z",
+    "CorrelationId": "1f5739ed-19fb-4dd8-a513-3b8670fd4c69",
+    "UserPrincipalName": "admin@workspace.local",
+    "RoleName": "Security Reader",
+    "RoleId": "9b895536-f61b-4029-a152-a5dd0354162e",
+    "TicketNumber": "INC-AUTO-TEST",
+    "Justification": "CI Automated Test Elevation",
+    "DurationHours": 1,
+    "Status": "Approved"
+  }
+]

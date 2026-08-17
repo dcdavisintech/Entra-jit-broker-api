@@ -1,0 +1,23 @@
+name: CI Test Suite
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  pester-tests:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Run Pester Suite
+        shell: pwsh
+        run: |
+          Install-Module -Name Pester -Force -SkipPublisherCheck -MinimumVersion 5.3.0
+          $config = New-PesterConfiguration$config.Run.Path = "./tests"
+          $config.Output.Verbosity = "Detailed"
+          $result = Invoke-Pester -Configuration$config -PassThru
+          if ($result.FailedCount -gt 0) { exit 1 }
