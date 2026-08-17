@@ -6,12 +6,12 @@ Describe 'EntraJITEngine Module Architecture' {
 
     It 'Exports core public cmdlets' {
         $commands = (Get-Command -Module EntraJITEngine).Name
-        ($commands -contains 'Get-EntraEligibleRoles') | Should Be $true
-        ($commands -contains 'Invoke-EntraPIMActivation') | Should Be $true
+        ($commands -contains 'Get-EntraEligibleRoles') | Should -Be $true
+        ($commands -contains 'Invoke-EntraPIMActivation') | Should -Be $true
     }
 
     It 'Executes role discovery in mock mode without errors' {
-        { Get-EntraEligibleRoles -Mock } | Should Not Throw
+        { Get-EntraEligibleRoles -Mock } | Should -Not -Throw
     }
 
     It 'Executes JIT role activation in mock mode without errors' {
@@ -22,6 +22,6 @@ Describe 'EntraJITEngine Module Architecture' {
                 -TicketNumber 'INC-AUTO-TEST' `
                 -DurationHours 1 `
                 -Mock
-        } | Should Not Throw
+        } | Should -Not -Throw
     }
 }
