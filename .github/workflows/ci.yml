@@ -2,22 +2,32 @@ name: CI Test Suite
 
 on:
   push:
-    branches: [ main, master ]
+    branches: [ "main" ]
   pull_request:
-    branches: [ main, master ]
+    branches: [ "main" ]
 
 jobs:
-  pester-tests:
+  test:
     runs-on: windows-latest
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Run Pester Suite
+      - name: Install and Cache PowerShell Modules
         shell: pwsh
         run: |
-          Install-Module -Name Pester -Force -SkipPublisherCheck -MinimumVersion 5.3.0
-          $config = New-PesterConfiguration$config.Run.Path = "./tests"
-          $config.Output.Verbosity = "Detailed"
-          $result = Invoke-Pester -Configuration$config -PassThru
-          if ($result.FailedCount -gt 0) { exit 1 }
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module Pester -Force -SkipPublisherCheck -MinimumVersion 5.0.0
+
+      - name: Execute Pester Automated Tests
+        shell: pwsh
+        run: |
+          Import-Module Pester
+          $config = New-PesterConfiguration
+          $config.Run.Path = './tests/EntraJITEngine.Tests.ps1'
+          $config.Run.PassThru = $true
+          $config.Output.Verbosity = 'Detailed'
+          $result = Invoke-Pester -Configuration $config
+          if ($result.FailedCount -gt 0) {
+              exit 1
+          }
